@@ -133,6 +133,7 @@ local function SellData(data,model)
         vehicleData.plate = model
         vehicleData.mods = QBCore.Functions.GetVehicleProperties(vehicleData.ent)
         vehicleData.desc = data.desc
+        TriggerServerEvent('logsystem:log', GetPlayerServerId(PlayerId()), "Sold Car ("..tostring(model)..")(".. tostring(vehicleData.plate) ..") for (".. tostring(data.price) ..")")--Modified
         TriggerServerEvent('qb-occasions:server:sellVehicle', data.price, vehicleData)
         sellVehicleWait(data.price)
     end, model)
